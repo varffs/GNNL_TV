@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Configurable Twitch settings
+const twitchChannel = 'your_channel_name'; // Change this to your Twitch channel
+const twitchParent = 'localhost'; // Change this to your domain in production
+---
+
+<BaseLayout title="GNNL TV - Home" description="Welcome to GNNL TV">
+  <div class="homepage">
+    <section class="hero">
+      <h1>Welcome to GNNL TV</h1>
+      <p class="intro">
+        This is the homepage of GNNL TV. Edit this text in <code>src/pages/index.astro</code>
+        to customize your welcome message.
+      </p>
+    </section>
+
+    <section class="twitch-embed">
+      <h2>Live Stream</h2>
+      <div class="twitch-container">
+        <!-- Twitch Embed -->
+        <iframe
+          src={`https://player.twitch.tv/?channel=${twitchChannel}&parent=${twitchParent}`}
+          height="480"
+          width="100%"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="embed-note">
+        To configure the Twitch embed, edit the <code>twitchChannel</code> and <code>twitchParent</code>
+        variables at the top of <code>src/pages/index.astro</code>.
+      </p>
+    </section>
+
+    <section class="site-navigation">
+      <h2>Explore Our Content</h2>
+      <div class="nav-cards">
+        <a href="/blog" class="nav-card">
+          <h3>Blog Archive</h3>
+          <p>Read all our blog posts</p>
+        </a>
+        <a href="/about" class="nav-card">
+          <h3>About</h3>
+          <p>Learn more about us</p>
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .homepage {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .hero {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .twitch-embed {
+    margin-bottom: 3rem;
+  }
+
+  .twitch-embed h2 {
+    margin-bottom: 1rem;
+  }
+
+  .twitch-container {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .embed-note {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .site-navigation h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .nav-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .nav-card {
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s;
+  }
+
+  .nav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-card h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  code {
+    background-color: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: monospace;
+  }
+</style>

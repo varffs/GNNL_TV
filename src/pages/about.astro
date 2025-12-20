@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About" description="About GNNL TV">
+  <div class="simple-page">
+    <h1>About GNNL TV</h1>
+    
+    <section class="content">
+      <p>
+        Welcome to GNNL TV! This is a simple page template that you can use for
+        any static content page on your site.
+      </p>
+      
+      <h2>Editing This Page</h2>
+      <p>
+        To edit this page, simply modify the content in <code>src/pages/about.astro</code>.
+        You can add more sections, paragraphs, images, or any other content you need.
+      </p>
+      
+      <h2>Creating More Pages</h2>
+      <p>
+        To create additional simple pages like this one:
+      </p>
+      <ol>
+        <li>Create a new <code>.astro</code> file in the <code>src/pages/</code> directory</li>
+        <li>Import and use the <code>BaseLayout</code> component</li>
+        <li>Add your content inside the layout</li>
+        <li>The page will automatically be available at the URL matching your filename</li>
+      </ol>
+      
+      <h2>Features</h2>
+      <ul>
+        <li>Simple, clean design</li>
+        <li>Easy to customize</li>
+        <li>Uses the same layout as other pages for consistency</li>
+        <li>Supports all standard HTML and Markdown</li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .simple-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .simple-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .content {
+    line-height: 1.8;
+  }
+
+  .content h2 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .content p {
+    margin-bottom: 1rem;
+  }
+
+  .content ul,
+  .content ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+  }
+
+  .content li {
+    margin-bottom: 0.5rem;
+  }
+
+  code {
+    background-color: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.9em;
+  }
+</style>

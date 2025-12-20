@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all blog posts from both types
+const blogType1Posts = await getCollection('blog-type-1');
+const blogType2Posts = await getCollection('blog-type-2');
+
+// Combine and sort all posts by date (newest first)
+const allPosts = [...blogType1Posts, ...blogType2Posts].sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title="Blog Archive" description="Browse all blog posts">
+  <div class="blog-archive">
+    <h1>Blog Archive</h1>
+    <p class="archive-intro">Browse all our blog posts below.</p>
+    
+    {allPosts.length === 0 ? (
+      <p class="no-posts">No blog posts yet. Check back soon!</p>
+    ) : (
+      <div class="posts-list">
+        {allPosts.map((post) => (
+          <article class="post-preview">
+            <h2>
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+            </h2>
+            <div class="post-meta">
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('en-US', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
+              </time>
+              {post.data.author && (
+                <span class="author">by {post.data.author}</span>
+              )}
+            </div>
+            <p class="description">{post.data.description}</p>
+            {post.data.tags && post.data.tags.length > 0 && (
+              <div class="tags">
+                {post.data.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .blog-archive {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .blog-archive h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .archive-intro {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+  }
+
+  .no-posts {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+  }
+
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .post-preview {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .post-preview:last-child {
+    border-bottom: none;
+  }
+
+  .post-preview h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-preview h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .post-preview h2 a:hover {
+    text-decoration: underline;
+  }
+
+  .post-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+  }
+
+  .description {
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background-color: #f0f0f0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+  }
+</style>
