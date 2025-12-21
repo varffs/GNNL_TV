@@ -2,13 +2,18 @@
 interface Props {
   title: string;
   description?: string;
+  hideNavigation?: boolean;
 }
 
-const { title, description = 'GNNL TV Website' } = Astro.props;
-import '../styles/global.styl';
+const {
+  title,
+  description = "GNNL TV Website",
+  hideNavigation = false,
+} = Astro.props;
+import "../styles/global.styl";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,19 +24,21 @@ import '../styles/global.styl';
     <title>{title}</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/manifesto">Manifesto</a>
-        <a href="/communiques">Communiques</a>
-        <a href="/about">About</a>
-      </nav>
-    </header>
+    {
+      !hideNavigation && (
+        <header>
+          <nav>
+            <a href="/">GNNL TV</a>
+            <a href="/manifesto">Manifesto</a>
+            <a href="/communiques">Communiques</a>
+            <a href="/san">San</a>
+            <a href="/chat">Chat</a>
+          </nav>
+        </header>
+      )
+    }
     <main>
       <slot />
     </main>
-    <footer>
-      <p>&copy; 2024 GNNL TV. All rights reserved.</p>
-    </footer>
   </body>
 </html>

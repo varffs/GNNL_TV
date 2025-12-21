@@ -6,7 +6,7 @@ const twitchChannel = "your_channel_name"; // Change this to your Twitch channel
 const twitchParent = "localhost"; // Change this to your domain in production
 ---
 
-<BaseLayout title="GNNL TV - Home" description="GNNL TV">
+<BaseLayout title="GNNL TV - Home" description="GNNL TV" hideNavigation={true}>
   <div class="homepage">
     <section class="hero">
       <h1>GNNL TV</h1>
@@ -38,13 +38,12 @@ const twitchParent = "localhost"; // Change this to your domain in production
     </section>
 
     <section class="site-navigation">
-      <h2>Explore Our Content</h2>
       <div class="nav-cards">
-        <a href="/communiques" class="nav-card">
-          <h3>Communiques</h3>
-        </a>
         <a href="/san" class="nav-card">
           <h3>San</h3>
+        </a>
+        <a href="/communiques" class="nav-card">
+          <h3>Communiques</h3>
         </a>
         <a href="/chat" class="nav-card">
           <h3>Chat</h3>
