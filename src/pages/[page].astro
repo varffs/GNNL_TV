@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry, getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  // Get all pages from the content/pages collection
+  const pages = await getCollection('pages');
+  
+  // Filter to only include san and chat pages
+  const validPages = pages.filter(page => 
+    page.slug === 'san' || page.slug === 'chat'
+  );
+  
+  return validPages.map((page) => ({
+    params: { page: page.slug },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await page.render();
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <div class="simple-page">
+    <Content />
+  </div>
+</BaseLayout>
