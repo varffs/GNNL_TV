@@ -5,11 +5,9 @@ interface Props {
   title: string;
   description: string;
   pubDate: Date;
-  author?: string;
-  tags?: string[];
 }
 
-const { title, description, pubDate, author, tags } = Astro.props;
+const { title, description, pubDate } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -20,15 +18,7 @@ const { title, description, pubDate, author, tags } = Astro.props;
         <time datetime={pubDate.toISOString()}>
           {pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         </time>
-        {author && <span class="author">by {author}</span>}
       </div>
-      {tags && tags.length > 0 && (
-        <div class="tags">
-          {tags.map((tag) => (
-            <span class="tag">{tag}</span>
-          ))}
-        </div>
-      )}
     </header>
     <div class="post-content">
       <slot />

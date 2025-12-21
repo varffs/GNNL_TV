@@ -3,14 +3,9 @@ import { getCollection } from 'astro:content';
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
 
 export async function getStaticPaths() {
-  // Get posts from both blog types
-  const blogType1Posts = await getCollection('blog-type-1');
-  const blogType2Posts = await getCollection('blog-type-2');
+  const posts = await getCollection('blog-type-2');
   
-  // Combine all posts
-  const allPosts = [...blogType1Posts, ...blogType2Posts];
-  
-  return allPosts.map((post) => ({
+  return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
   }));
@@ -24,8 +19,6 @@ const { Content } = await post.render();
   title={post.data.title}
   description={post.data.description}
   pubDate={post.data.pubDate}
-  author={post.data.author}
-  tags={post.data.tags}
 >
   <Content />
 </BlogPostLayout>

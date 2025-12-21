@@ -6,8 +6,6 @@ const blogType1 = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.date(),
-    author: z.string().optional(),
-    tags: z.array(z.string()).optional(),
   }),
 });
 
@@ -17,12 +15,19 @@ const blogType2 = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.date(),
-    author: z.string().optional(),
-    tags: z.array(z.string()).optional(),
+  }),
+});
+
+const pages = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
   }),
 });
 
 export const collections = {
   'blog-type-1': blogType1,
   'blog-type-2': blogType2,
+  'pages': pages,
 };

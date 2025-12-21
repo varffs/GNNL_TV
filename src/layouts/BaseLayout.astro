@@ -5,6 +5,7 @@ interface Props {
 }
 
 const { title, description = 'GNNL TV Website' } = Astro.props;
+import '../styles/global.styl';
 ---
 
 <!DOCTYPE html>
@@ -16,13 +17,13 @@ const { title, description = 'GNNL TV Website' } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>
     <header>
       <nav>
         <a href="/">Home</a>
-        <a href="/blog">Blog Archive</a>
+        <a href="/blog-type-1">Blog Type 1</a>
+        <a href="/blog-type-2">Blog Type 2</a>
         <a href="/about">About</a>
       </nav>
     </header>

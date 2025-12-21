@@ -1,0 +1,259 @@
+/* Global Styles for GNNL TV - Unified Stylus Stylesheet */
+
+/* Reset and Base Styles */
+*
+  margin 0
+  padding 0
+  box-sizing border-box
+
+html
+  font-family system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif
+  font-size 16px
+  line-height 1.6
+
+body
+  color #333
+  background-color #fff
+
+/* Header Styles */
+header
+  background-color #f8f9fa
+  border-bottom 1px solid #e0e0e0
+  padding 1rem 0
+
+  nav
+    max-width 1200px
+    margin 0 auto
+    padding 0 2rem
+    display flex
+    gap 2rem
+
+    a
+      text-decoration none
+      color #333
+      font-weight 500
+      transition color 0.2s
+
+      &:hover
+        color #6366f1
+
+/* Main Content */
+main
+  min-height calc(100vh - 200px)
+
+/* Footer Styles */
+footer
+  background-color #f8f9fa
+  border-top 1px solid #e0e0e0
+  padding 2rem 0
+  margin-top 4rem
+  text-align center
+
+  p
+    color #666
+
+/* Typography */
+h1, h2, h3, h4, h5, h6
+  line-height 1.2
+  font-weight 600
+
+h1
+  font-size 2.5rem
+
+h2
+  font-size 2rem
+
+h3
+  font-size 1.5rem
+
+a
+  color #6366f1
+
+code
+  background-color #f4f4f4
+  padding 0.2rem 0.4rem
+  border-radius 3px
+  font-family monospace
+  font-size 0.9em
+
+/* Homepage Styles */
+.homepage
+  max-width 1200px
+  margin 0 auto
+  padding 2rem
+
+  .hero
+    text-align center
+    margin-bottom 3rem
+
+    h1
+      font-size 2.5rem
+      margin-bottom 1rem
+
+  .intro
+    font-size 1.2rem
+    line-height 1.6
+
+  .twitch-embed
+    margin-bottom 3rem
+
+    h2
+      margin-bottom 1rem
+
+    .twitch-container
+      max-width 100%
+      margin-bottom 1rem
+
+    .embed-note
+      font-size 0.9rem
+      color #666
+
+  .site-navigation
+    h2
+      margin-bottom 1.5rem
+      text-align center
+
+    .nav-cards
+      display grid
+      grid-template-columns repeat(auto-fit, minmax(250px, 1fr))
+      gap 2rem
+
+    .nav-card
+      padding 2rem
+      border 1px solid #ddd
+      border-radius 8px
+      text-decoration none
+      color inherit
+      transition transform 0.2s
+
+      &:hover
+        transform translateY(-4px)
+        box-shadow 0 4px 12px rgba(0, 0, 0, 0.1)
+
+      h3
+        margin-bottom 0.5rem
+
+/* Blog Archive Styles */
+.blog-archive
+  max-width 800px
+  margin 0 auto
+  padding 2rem
+
+  h1
+    font-size 2.5rem
+    margin-bottom 1rem
+
+  .archive-intro
+    font-size 1.1rem
+    color #666
+    margin-bottom 3rem
+
+  .no-posts
+    text-align center
+    color #999
+    font-style italic
+
+  .posts-list
+    display flex
+    flex-direction column
+    gap 2.5rem
+
+  .post-preview
+    padding-bottom 2rem
+    border-bottom 1px solid #eee
+
+    &:last-child
+      border-bottom none
+
+    h2
+      margin-bottom 0.5rem
+
+      a
+        color inherit
+        text-decoration none
+
+        &:hover
+          text-decoration underline
+
+  .post-meta
+    display flex
+    gap 1rem
+    font-size 0.9rem
+    color #666
+    margin-bottom 0.75rem
+
+  .description
+    line-height 1.6
+    margin-bottom 0.75rem
+
+/* Blog Post Styles */
+.blog-post
+  max-width 800px
+  margin 0 auto
+  padding 2rem
+
+.post-header
+  margin-bottom 2rem
+  padding-bottom 2rem
+  border-bottom 1px solid #e0e0e0
+
+  h1
+    margin-bottom 1rem
+
+.post-content
+  line-height 1.8
+
+  h1, h2, h3
+    margin-top 2rem
+    margin-bottom 1rem
+
+  p
+    margin-bottom 1rem
+
+  ul, ol
+    margin-bottom 1rem
+    padding-left 2rem
+
+  li
+    margin-bottom 0.5rem
+
+/* Simple Page Styles */
+.simple-page
+  max-width 800px
+  margin 0 auto
+  padding 2rem
+
+  h1
+    font-size 2.5rem
+    margin-bottom 2rem
+
+  h2
+    font-size 1.8rem
+    margin-top 2rem
+    margin-bottom 1rem
+
+  p
+    margin-bottom 1rem
+    line-height 1.8
+
+  ul, ol
+    margin-bottom 1rem
+    padding-left 2rem
+
+  li
+    margin-bottom 0.5rem
+
+/* Responsive Design */
+@media (max-width: 768px)
+  html
+    font-size 14px
+
+  header nav
+    padding 0 1rem
+    gap 1rem
+
+  .blog-post,
+  .homepage,
+  .blog-archive,
+  .simple-page
+    padding 1rem

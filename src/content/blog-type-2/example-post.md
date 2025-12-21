@@ -2,8 +2,6 @@
 title: "Example Blog Type 2 Post"
 description: "This is an example blog post of type 2"
 pubDate: 2024-01-20
-author: "Admin"
-tags: ["example", "type2"]
 ---
 
 # Example Blog Type 2 Post
