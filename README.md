@@ -22,7 +22,7 @@ A modern website built with [Astro](https://astro.build/) featuring a Twitch str
 ├── src/
 │   ├── content/
 │   │   ├── config.ts           # Content collections config
-│   │   ├── blog-type-1/        # Blog type 1 posts
+│   │   ├── manifesto/          # Manifesto posts
 │   │   └── blog-type-2/        # Blog type 2 posts
 │   ├── layouts/
 │   │   ├── BaseLayout.astro    # Main layout
@@ -87,9 +87,9 @@ To configure the Twitch embed on the homepage:
 
 ### Adding Blog Posts
 
-#### Blog Type 1
+#### Manifesto
 
-Create a new markdown file in `src/content/blog-type-1/`:
+Create a new markdown file in `src/content/manifesto/`:
 
 ```markdown
 ---

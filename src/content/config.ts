@@ -27,7 +27,7 @@ const pages = defineCollection({
 });
 
 export const collections = {
-  'blog-type-1': blogType1,
+  'manifesto': blogType1,
   'blog-type-2': blogType2,
   'pages': pages,
 };

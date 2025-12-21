@@ -2,15 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog-type-1')).sort(
+const posts = (await getCollection('manifesto')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
-<BaseLayout title="Blog Type 1 Archive" description="Browse all blog type 1 posts">
+<BaseLayout title="Manifesto Archive" description="Browse all manifesto posts">
   <div class="blog-archive">
-    <h1>Blog Type 1 Archive</h1>
-    <p class="archive-intro">Browse all blog type 1 posts below.</p>
+    <h1>Manifesto Archive</h1>
+    <p class="archive-intro">Browse all manifesto posts below.</p>
     
     {posts.length === 0 ? (
       <p class="no-posts">No blog posts yet. Check back soon!</p>
@@ -19,7 +19,7 @@ const posts = (await getCollection('blog-type-1')).sort(
         {posts.map((post) => (
           <article class="post-preview">
             <h2>
-              <a href={`/blog-type-1/${post.slug}`}>{post.data.title}</a>
+              <a href={`/manifesto/${post.slug}`}>{post.data.title}</a>
             </h2>
             <div class="post-meta">
               <time datetime={post.data.pubDate.toISOString()}>
