@@ -5,6 +5,14 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('manifesto')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+// Render content for each post
+const postsWithContent = await Promise.all(
+  posts.map(async (post) => {
+    const { Content } = await post.render();
+    return { post, Content };
+  })
+);
 ---
 
 <BaseLayout title="Manifesto Archive" description="Browse all manifesto posts">
@@ -16,11 +24,9 @@ const posts = (await getCollection('manifesto')).sort(
       <p class="no-posts">No blog posts yet. Check back soon!</p>
     ) : (
       <div class="posts-list">
-        {posts.map((post) => (
-          <article class="post-preview">
-            <h2>
-              <a href={`/manifesto/${post.slug}`}>{post.data.title}</a>
-            </h2>
+        {postsWithContent.map(({ post, Content }) => (
+          <article class="post-full">
+            <h2>{post.data.title}</h2>
             <div class="post-meta">
               <time datetime={post.data.pubDate.toISOString()}>
                 {post.data.pubDate.toLocaleDateString('en-US', { 
@@ -30,7 +36,9 @@ const posts = (await getCollection('manifesto')).sort(
                 })}
               </time>
             </div>
-            <p class="description">{post.data.description}</p>
+            <div class="post-content">
+              <Content />
+            </div>
           </article>
         ))}
       </div>
