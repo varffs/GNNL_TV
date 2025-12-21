@@ -14,4 +14,4 @@ This is an example blog post of type 2. You can edit this content and add your o
 - Add frontmatter metadata
 - Organize your content
 
-Edit the files in `src/content/blog-type-2/` to add your own posts.
+Edit the files in `src/content/communiques/` to add your own posts.

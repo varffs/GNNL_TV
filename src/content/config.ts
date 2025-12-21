@@ -28,6 +28,6 @@ const pages = defineCollection({
 
 export const collections = {
   'manifesto': blogType1,
-  'blog-type-2': blogType2,
+  'communiques': blogType2,
   'pages': pages,
 };

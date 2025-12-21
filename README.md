@@ -23,7 +23,7 @@ A modern website built with [Astro](https://astro.build/) featuring a Twitch str
 │   ├── content/
 │   │   ├── config.ts           # Content collections config
 │   │   ├── manifesto/          # Manifesto posts
-│   │   └── blog-type-2/        # Blog type 2 posts
+│   │   └── communiques/        # Communiques posts
 │   ├── layouts/
 │   │   ├── BaseLayout.astro    # Main layout
 │   │   └── BlogPostLayout.astro # Blog post layout
@@ -103,9 +103,9 @@ tags: ["tag1", "tag2"]
 Your content here...
 ```
 
-#### Blog Type 2
+#### Communiques
 
-Create a new markdown file in `src/content/blog-type-2/` with the same format.
+Create a new markdown file in `src/content/communiques/` with the same format.
 
 Both blog types will appear together in the blog archive at `/blog`.
 
