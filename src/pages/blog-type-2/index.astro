@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog-type-2')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title="Blog Type 2 Archive" description="Browse all blog type 2 posts">
+  <div class="blog-archive">
+    <h1>Blog Type 2 Archive</h1>
+    <p class="archive-intro">Browse all blog type 2 posts below.</p>
+    
+    {posts.length === 0 ? (
+      <p class="no-posts">No blog posts yet. Check back soon!</p>
+    ) : (
+      <div class="posts-list">
+        {posts.map((post) => (
+          <article class="post-preview">
+            <h2>
+              <a href={`/blog-type-2/${post.slug}`}>{post.data.title}</a>
+            </h2>
+            <div class="post-meta">
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('en-US', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
+              </time>
+            </div>
+            <p class="description">{post.data.description}</p>
+          </article>
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>

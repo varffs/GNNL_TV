@@ -1,0 +1,24 @@
+{
+  "name": "gnnl_tv",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "GNNL TV Website built with Astro",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "astro": "^5.16.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.3",
+    "stylus": "^0.64.0",
+    "typescript": "^5.7.2"
+  }
+}

@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Configurable Twitch settings
+const twitchChannel = 'your_channel_name'; // Change this to your Twitch channel
+const twitchParent = 'localhost'; // Change this to your domain in production
+---
+
+<BaseLayout title="GNNL TV - Home" description="Welcome to GNNL TV">
+  <div class="homepage">
+    <section class="hero">
+      <h1>Welcome to GNNL TV</h1>
+      <p class="intro">
+        This is the homepage of GNNL TV. Edit this text in <code>src/pages/index.astro</code>
+        to customize your welcome message.
+      </p>
+    </section>
+
+    <section class="twitch-embed">
+      <h2>Live Stream</h2>
+      <div class="twitch-container">
+        <!-- Twitch Embed -->
+        <iframe
+          src={`https://player.twitch.tv/?channel=${twitchChannel}&parent=${twitchParent}`}
+          height="480"
+          width="100%"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="embed-note">
+        To configure the Twitch embed, edit the <code>twitchChannel</code> and <code>twitchParent</code>
+        variables at the top of <code>src/pages/index.astro</code>.
+      </p>
+    </section>
+
+    <section class="site-navigation">
+      <h2>Explore Our Content</h2>
+      <div class="nav-cards">
+        <a href="/blog-type-1" class="nav-card">
+          <h3>Blog Type 1</h3>
+          <p>Read blog type 1 posts</p>
+        </a>
+        <a href="/blog-type-2" class="nav-card">
+          <h3>Blog Type 2</h3>
+          <p>Read blog type 2 posts</p>
+        </a>
+        <a href="/about" class="nav-card">
+          <h3>About</h3>
+          <p>Learn more about us</p>
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
