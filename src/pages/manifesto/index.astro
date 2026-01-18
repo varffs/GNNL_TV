@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
-const posts = (await getCollection('manifesto')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+const posts = (await getCollection("manifesto")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
 // Render content for each post
@@ -11,37 +11,37 @@ const postsWithContent = await Promise.all(
   posts.map(async (post) => {
     const { Content } = await post.render();
     return { post, Content };
-  })
+  }),
 );
 ---
 
 <BaseLayout title="Manifesto Archive" description="Browse all manifesto posts">
   <div class="blog-archive">
-    <h1>Manifesto Archive</h1>
-    <p class="archive-intro">Browse all manifesto posts below.</p>
-    
-    {posts.length === 0 ? (
-      <p class="no-posts">No blog posts yet. Check back soon!</p>
-    ) : (
-      <div class="posts-list">
-        {postsWithContent.map(({ post, Content }) => (
-          <article class="post-full">
-            <h2>{post.data.title}</h2>
-            <div class="post-meta">
-              <time datetime={post.data.pubDate.toISOString()}>
-                {post.data.pubDate.toLocaleDateString('en-US', { 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric' 
-                })}
-              </time>
-            </div>
-            <div class="post-content">
-              <Content />
-            </div>
-          </article>
-        ))}
-      </div>
-    )}
+    <h1>MANIFESTX</h1>
+    {
+      posts.length === 0 ? (
+        <p class="no-posts">Void</p>
+      ) : (
+        <div class="posts-list">
+          {postsWithContent.map(({ post, Content }) => (
+            <article class="post-full">
+              <h2>{post.data.title}</h2>
+              <div class="post-meta">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+              </div>
+              <div class="post-content">
+                <Content />
+              </div>
+            </article>
+          ))}
+        </div>
+      )
+    }
   </div>
 </BaseLayout>
