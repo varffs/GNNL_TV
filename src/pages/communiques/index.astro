@@ -5,6 +5,14 @@ import { getCollection } from "astro:content";
 const posts = (await getCollection("communiques")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+// Render content for each post
+const postsWithContent = await Promise.all(
+  posts.map(async (post) => {
+    const { Content } = await post.render();
+    return { post, Content };
+  }),
+);
 ---
 
 <BaseLayout
@@ -19,11 +27,9 @@ const posts = (await getCollection("communiques")).sort(
         <p class="no-posts">Void</p>
       ) : (
         <div class="posts-list">
-          {posts.map((post) => (
-            <article class="post-preview">
-              <h2>
-                <a href={`/communiques/${post.slug}`}>{post.data.title}</a>
-              </h2>
+          {postsWithContent.map(({ post, Content }) => (
+            <article class="post-full">
+              <h2>{post.data.title}</h2>
               <div class="post-meta">
                 <time datetime={post.data.pubDate.toISOString()}>
                   {post.data.pubDate.toLocaleDateString("en-US", {
@@ -33,7 +39,9 @@ const posts = (await getCollection("communiques")).sort(
                   })}
                 </time>
               </div>
-              <p class="description">{post.data.description}</p>
+              <div class="post-content">
+                <Content />
+              </div>
             </article>
           ))}
         </div>
