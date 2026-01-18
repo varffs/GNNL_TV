@@ -2,16 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 // Configurable Twitch settings
-const twitchChannel = "your_channel_name"; // Change this to your Twitch channel
-const twitchParent = "localhost"; // Change this to your domain in production
+const twitchChannel = "gnnl_tv";
+const twitchParent = "gnnl_tv.patrickbest.com";
 ---
 
 <BaseLayout title="GNNL TV - Home" description="GNNL TV" hideNavigation={true}>
   <div class="homepage">
     <section class="hero">
-      <h1>GNNL TV</h1>
+      <h1>GNNL_TV</h1>
       <h2>TACTICAL STREAMING</h2>
-      <p>GNNL_TV is a…lorem ipsem</p>
+      <p>GNNL_TV is a community livestreaming project for exploring hybrid solidarities.</p>
       <a href="/manifesto" class="nav-card">
         <h3>Manifesto</h3>
       </a>
@@ -29,12 +29,7 @@ const twitchParent = "localhost"; // Change this to your domain in production
         >
         </iframe>
       </div>
-      <p class="embed-note">
-        To configure the Twitch embed, edit the <code>twitchChannel</code> and <code
-          >twitchParent</code
-        >
-        variables at the top of <code>src/pages/index.astro</code>.
-      </p>
+      <p class="embed-note">Next live: 1 May</p>
     </section>
 
     <section class="site-navigation">
