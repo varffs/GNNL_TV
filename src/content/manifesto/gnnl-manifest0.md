@@ -20,7 +20,7 @@ The GNNL is, therefore, an invitation. To form new relations and ways of relatin
 
 The GNNL seeks a new culture. Of becoming over being. Of relating over knowing. And, yes, of collaboration over competition. Of life over capital. We are not afraid of difference, or vulnerability, or unknowing, or ruins. We are not afraid of struggle. We are not afraid of common endeavour.
 
-In that spirit, unabashed, we embrace those who brought the GNNL to becoming. StreamArtNetwork x CDI x Konfluxus x 3022 x VOID x Novara x Heart Reacts x Agit x Indymedia x Bifo x Radio Alice x comrades known and unknown, past and future and everywhere between. We remix and remediate their words, actions, hopes, fears, labour, technics, image, generosity and spirit.
+In that spirit, unabashed, we embrace those who brought the GNNL to becoming. StreamArtNetwork x CDI x UKRAiNATV x Konfluxus x 3022 x VOID x Novara x Heart Reacts x Agit x Indymedia x Bifo x Radio Alice x comrades known and unknown, past and future and everywhere between. We remix and remediate their words, actions, hopes, fears, labour, technics, image, generosity and spirit.
 
 The GNNL is always, like every worthwhile project in these times, a wager on shared experience.
 
